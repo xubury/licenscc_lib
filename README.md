@@ -7,10 +7,10 @@ Boost
 OpenSSL
 
 ### Issue a license
-./bin/lccgen license issue -p <path-to-private-key> -s <identifier> -o <path/to/license> 
+lccgen license issue -p \<path-to-private-key\> -s \<identifier\> -o \<path/to/license\> 
 
 ### validate a license
-./bin/licensecc_demo <path/to/license>
+licensecc_demo \<path/to/license\>
 
 
 ### use validator as lib
