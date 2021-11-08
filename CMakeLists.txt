@@ -19,6 +19,8 @@ add_subdirectory(libs/licensecc)
 add_library(validator 
     src/Validator.cpp)
 
+set_property(TARGET validator PROPERTY CXX_STANDARD 17)
+
 target_include_directories(validator PUBLIC include)
 target_link_libraries(validator PRIVATE licensecc::licensecc_static)
 
