@@ -50,7 +50,7 @@ bool Validator::validate(const std::string &path) {
     }
 }
 
-std::string Validator::getIdString() {
+std::string Validator::getIdentifier() {
     size_t pc_id_sz = LCC_API_PC_IDENTIFIER_SIZE + 1;
     char pc_identifier[LCC_API_PC_IDENTIFIER_SIZE + 1];
     if (identify_pc(strategy, pc_identifier, &pc_id_sz, nullptr)) {

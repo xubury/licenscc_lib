@@ -6,7 +6,7 @@
 class Validator {
    public:
     static bool validate(const std::string &path);
-    static std::string getIdString();
+    static std::string getIdentifier();
 };
 
 #endif  // !VALIDATOR_HPP

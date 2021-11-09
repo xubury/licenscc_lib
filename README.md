@@ -7,18 +7,17 @@ Boost
 OpenSSL
 
 ### Issue a license
-lccgen license issue -p \<path-to-private-key\> -s \<identifier\> -o \<path/to/license\> 
+lccgen license issue -p `path/to/private-key` -s `hardware-id` -o `path/to/license`
 
 ### validate a license
-licensecc_demo \<path/to/license\>
-
+licensecc_demo `path/to/license`
 
 ### use validator as lib
-Link validator, include <Validator.hpp>
+Link validator, include `Validator.hpp`
 
 ```cpp
-  // first init validator
-  Validator::init();
-  ....
+  // validate license
   Validator::validate("path/to/license")
-```  
+  // get hardware id
+  std::cout << Validator::getIdentifier() << std::endl;
+```
