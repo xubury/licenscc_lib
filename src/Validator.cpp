@@ -27,20 +27,17 @@ bool Validator::validate(const std::string &path) {
         p = std::filesystem::current_path() / p;
     }
     std::cout << "Validating license file from: " << p << std::endl;
-    LicenseInfo licenseInfo;
+    LicenseInfo license;
     size_t pc_id_sz = LCC_API_PC_IDENTIFIER_SIZE + 1;
     char pc_identifier[LCC_API_PC_IDENTIFIER_SIZE + 1];
 
-    LicenseLocation licenseLoc;
-    licenseLoc.license_data_type = LICENSE_PATH;
-    std::fill(licenseLoc.licenseData,
-              licenseLoc.licenseData + sizeof(licenseLoc.licenseData), 0);
+    LicenseLocation licenseLoc{LICENSE_PATH};
     std::copy(path.begin(), path.end(), licenseLoc.licenseData);
 
-    LCC_EVENT_TYPE result = acquire_license(nullptr, &licenseLoc, &licenseInfo);
+    LCC_EVENT_TYPE result = acquire_license(nullptr, &licenseLoc, &license);
     if (result == LICENSE_OK) {
         std::cout << "license OK" << std::endl;
-        if (!licenseInfo.linked_to_pc) {
+        if (!license.linked_to_pc) {
             return false;
         } else {
             return true;
