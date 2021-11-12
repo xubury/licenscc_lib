@@ -1,4 +1,4 @@
-# licensecc_demo
+# validator
 
 ## How to use
 ### Requirement
