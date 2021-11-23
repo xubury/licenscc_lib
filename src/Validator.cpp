@@ -21,7 +21,7 @@ const std::map<LCC_EVENT_TYPE, std::string> s_stringByEventType = {
 
 const LCC_API_HW_IDENTIFICATION_STRATEGY strategy = STRATEGY_DISK;
 
-bool Validator::validate(const std::string &path) {
+bool Validator::Validate(const std::string &path) {
     auto p = std::filesystem::path(path);
     if (p.is_relative()) {
         p = std::filesystem::current_path() / p;
@@ -50,7 +50,7 @@ bool Validator::validate(const std::string &path) {
     }
 }
 
-std::string Validator::getIdentifier() {
+std::string Validator::GetIdentifier() {
     size_t pc_id_sz = LCC_API_PC_IDENTIFIER_SIZE + 1;
     char pc_identifier[LCC_API_PC_IDENTIFIER_SIZE + 1];
     if (identify_pc(strategy, pc_identifier, &pc_id_sz, nullptr)) {
